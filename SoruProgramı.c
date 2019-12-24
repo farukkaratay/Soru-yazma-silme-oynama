@@ -6,17 +6,17 @@
 
 #define BOYUT 50  				//  boyutu 50 olarak sabitlendi 
 
-int fonk1 (void);               /* Menü seçeneği belirleme    */
+int fonk1 (void);               /* MenÃ¼ seÃ§eneÃ°i belirleme    */
 void fonk2 (void);              /* Soru Ekle                  */
-void fonk3 (void);              /* Soru id ye göre arama  ve silme          */
+void fonk3 (void);              /* Soru id ye gÃ¶re arama  ve silme          */
 void fonk4 (void);              /* Oyun oyna         */
-void fonk5 (void);              /* En yüksek 3 skor   */
-void fonk6 (int id1);  			/* Bilgileri ekranda gösterme id ye göre*/
-void fonk7 (void);              /* Bütün kayıtların listelenmesi */
+void fonk5 (void);              /* En yÃ¼ksek 3 skor   */
+void fonk6 (int id1);  			/* Bilgileri ekranda gÃ¶sterme id ye gÃ¶re*/
+void fonk7 (void);              /* BÃ¼tÃ¼n kayÃ½tlarÃ½n listelenmesi */
 void fonk8 (void);              /* Dosyaya kaydetme              */
-void fonk9 (void);              /* Dosyadan yükleme              */
-void skor_kaydet(void);			/*Skorları dosyaya kaydetme*/
-void skor_al(void);				/*Skorları dosyayan yükleme*/
+void fonk9 (void);              /* Dosyadan yÃ¼kleme              */
+void skor_kaydet(void);			/*SkorlarÃ½ dosyaya kaydetme*/
+void skor_al(void);				/*SkorlarÃ½ dosyayan yÃ¼kleme*/
 
 struct soru {
 	 int soru_id;
@@ -49,14 +49,14 @@ struct skorlar {
 	 int skor;
 	 } puan[BOYUT];
 	 
-int igd1=0;     //kayıtlı soru adeti
-int skor_id=0;  // kayıtlı skor adeti
+int igd1=0;     //kayÃ½tlÃ½ soru adeti
+int skor_id=0;  // kayÃ½tlÃ½ skor adeti
 
 int main (void)
 {
   	int id1;
- 	fonk9(); /* Soruların Dosyadan yükleme */
-  	skor_al (); /*skorların dosyadan yükleme*/
+ 	fonk9(); /* SorularÃ½n Dosyadan yÃ¼kleme */
+  	skor_al (); /*skorlarÃ½n dosyadan yÃ¼kleme*/
 //	printf("%d skor:",skor_id);
  do {
      printf("\n");
@@ -64,19 +64,19 @@ int main (void)
      switch (id1) {
         case 1 : fonk2(); //  soru ekle
            	break;
-      	case 2 : fonk3(); //id ye göre arama ve silme
+      	case 2 : fonk3(); //id ye gÃ¶re arama ve silme
         	break;
-       	case 3 : fonk7();  //bütün kayıtları listele 
+       	case 3 : fonk7();  //bÃ¼tÃ¼n kayÃ½tlarÃ½ listele 
         	break;
         case 4 : fonk4(); //Oyun oyna
             break;
-        case 5 : fonk5();  // en yüksek skorlar 
+        case 5 : fonk5();  // en yÃ¼ksek skorlar 
          break;
 		}
  	 } while (id1!=6);
 }
 
-	/* Bir menü seçeneği seçmenizi sağlar. */
+	/* Bir menÃ¼ seÃ§eneÃ°i seÃ§menizi saÃ°lar. */
 int fonk1 (void){
   	int secim;
   	printf("        TEST OYUNU\n");
@@ -95,7 +95,7 @@ int fonk1 (void){
   	return secim;
 }
 
-/* Veritabanına bilgi girişi */
+/* VeritabanÃ½na bilgi giriÃ¾i */
 void fonk2 (void)
 {
   int 	id1;
@@ -121,12 +121,12 @@ void fonk2 (void)
 	   	printf("Dogru Secenek: [A-D] ");
 		gets(ydizi[id1].dogru_cevap);  		  
 		  } 
-  igd1 = id1;                //kaç soru girildiyse son id yi igd1 e atıyor. tekrar soru girilirken kaldığı yerden devam ediyor
+  igd1 = id1;                //kaÃ§ soru girildiyse son id yi igd1 e atÃ½yor. tekrar soru girilirken kaldÃ½Ã°Ã½ yerden devam ediyor
   fonk8();				
 } 
 
 
-/* id ye göre arama ve silme */
+/* id ye gÃ¶re arama ve silme */
 void fonk3 (void){
   int aranan;
   int id1, id2;
@@ -166,7 +166,7 @@ void fonk3 (void){
   getchar();
 }
 
-//random sayı üretiyor
+//random sayÃ½ Ã¼retiyor
 random_id(){                                 
 int sonuc;
 srand(time(NULL));
@@ -189,7 +189,7 @@ void fonk4 (void)
 	else{	  
 	secilen_id=random_id();   
  
- 		for (i=0; i<5; i++ )   {   //5 soru  sormak  için döngü
+ 		for (i=0; i<5; i++ )   {   //5 soru  sormak  iÃ§in dÃ¶ngÃ¼
 			secilen[i].soru_id=secilen_id;									
 			strcpy (secilen[i].soru_metni,ydizi[secilen_id].soru_metni);	
 			strcpy (secilen[i].cevap_A,ydizi[secilen_id].cevap_A);
@@ -228,7 +228,7 @@ printf("\n");
     skor_kaydet();											   														
 }
 }
-//en yüksek 3 skor listele
+//en yÃ¼ksek 3 skor listele
 void fonk5(void){
 	int _skor,_skorid,i,j;
 	char _ad[75];
@@ -262,7 +262,7 @@ void fonk5(void){
 	}
      
 
-/* Bilgileri ekranda gösterme */
+/* Bilgileri ekranda gÃ¶sterme */
 void fonk6 (int id1)
 {
   
@@ -275,7 +275,7 @@ void fonk6 (int id1)
    
 }
 
-/* Bütün kayıtların listelenmesi */
+/* BÃ¼tÃ¼n kayÃ½tlarÃ½n listelenmesi */
 void fonk7 (void)
 {
   int id1;
@@ -329,13 +329,13 @@ printf("Degistirmek istediginiz soru var mi?(e)(h)");
 }system("CLS");
 }
 }
-/* Kayıtların dosyaya kaydedilmesi */
+/* KayÃ½tlarÃ½n dosyaya kaydedilmesi */
 void fonk8 (void)
 {
   FILE *fp1;
 
   if ((fp1=fopen ("Sorular.txt", "w")) == NULL) {
-      printf("Dosya açılamadı!\n");
+      printf("Dosya aÃ§Ã½lamadÃ½!\n");
       exit(1);
   }
 
@@ -350,7 +350,7 @@ void skor_kaydet(void){
 	
 	FILE *fp1;
 	if ((fp1=fopen ("Skorlar.txt", "w")) == NULL) {
-    printf("Dosya açılamadı!\n");
+    printf("Dosya aÃ§Ã½lamadÃ½!\n");
     exit(1);
   }
 	
@@ -360,7 +360,7 @@ void skor_kaydet(void){
 
 }
 
-/* Kayıtların dosyadan yüklenmesi */
+/* KayÃ½tlarÃ½n dosyadan yÃ¼klenmesi */
 void fonk9 (void)
 {
   FILE *fp1;
@@ -375,7 +375,7 @@ void fonk9 (void)
 
   fclose (fp1);
 }
-//skorların Dosyayan yüklenmesi
+//skorlarÃ½n Dosyayan yÃ¼klenmesi
 void skor_al (void)
 {
   FILE *fp1;
